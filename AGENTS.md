@@ -6,7 +6,7 @@ Este archivo lo leen Codex, Claude y cualquier agente que trabaje en el repo.
 ## Qué es
 
 Spooky World es una colección de minijuegos de Halloween hecha en una
-**hackatón de 6 horas** por JamarTeam: **2 devs y 2 diseñadores**.
+**hackatón de 6 horas** por **2 devs y 2 diseñadores**.
 Flujo del juego: Menú → Hub (elige minijuego) → Minijuego (con HUD y cuenta
 regresiva) → Resultados → Hub.
 

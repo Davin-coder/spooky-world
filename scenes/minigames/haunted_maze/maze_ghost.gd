@@ -3,10 +3,19 @@ extends Area2D
 ## Fantasma del laberinto. Sigue la ruta que le da la raíz, de centro a centro
 ## de celda, así nunca atraviesa muros. No conoce el laberinto ni al jugador:
 ## solo avisa con [signal caught_player] (su máscara es la capa del jugador).
+## Se dibuja como un murciélago que aletea (%Visual).
 
 signal caught_player
 ## Terminó la pausa de [method freeze_for] y vuelve a perseguir.
 signal woke_up
+
+const FLY_ANIMATION: StringName = &"fly"
+
+@export_group("Visual")
+## Escala de los cuadros del murciélago (miden ~660-807 px de ancho).
+@export var bat_scale: float = 0.048
+## Cuadros por segundo del aleteo.
+@export_range(1.0, 30.0) var flap_fps: float = 10.0
 
 ## Píxeles por segundo. La raíz lo ajusta con la dificultad.
 var speed: float = 120.0
@@ -21,17 +30,26 @@ var can_move: bool = false:
 var _path: Array[Vector2] = []
 
 @onready var _wake_timer: Timer = %WakeTimer
+@onready var _visual: AnimatedSprite2D = %Visual
 
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	_wake_timer.timeout.connect(_on_wake_timer_timeout)
+	_visual.scale = Vector2.ONE * bat_scale
+	_visual.play(FLY_ANIMATION)
+	_visual.speed_scale = flap_fps / _visual.sprite_frames.get_animation_speed(FLY_ANIMATION)
+	# Cada uno empieza en un cuadro distinto para que no aleteen sincronizados.
+	var frame_count: int = _visual.sprite_frames.get_frame_count(FLY_ANIMATION)
+	_visual.set_frame_and_progress(randi() % frame_count, randf())
 
 
 func _physics_process(delta: float) -> void:
 	if not can_move:
 		return
 	var step: float = speed * delta
+	if not _path.is_empty() and not is_equal_approx(_path[0].x, position.x):
+		_visual.flip_h = _path[0].x < position.x
 	while step > 0.0 and not _path.is_empty():
 		var distance: float = position.distance_to(_path[0])
 		if distance > step:

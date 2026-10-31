@@ -98,10 +98,11 @@ Pausa: [Reanudar]  [Reiniciar]  [Salir al hub]
 | Error/peligro | `BLOOD` + icono/forma distinta y texto breve |
 | Espaciado | Escala 8 px: 8, 16, 24, 32, 48 |
 | Transiciones | 150–250 ms, sin animaciones que retrasen el inicio de una partida |
+| Tipografía | **Patrick Hand** (OFL, `assets/fonts/`): única para toda la UI, trazo a mano como el arte |
 
 La paleta existente ofrece, para texto sin transparencia, aproximadamente **15.3:1** (`BONE` sobre `NIGHT`) y **6.8:1** (`PUMPKIN` sobre `NIGHT`). Verificar cada estado final, porque las ilustraciones, opacidad y sombras cambian el contraste. Objetivo: ≥ 4.5:1 para texto normal y ≥ 3:1 para texto grande, según [WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum).
 
-Implementación prevista: un recurso `Theme` compartido para botones, etiquetas y paneles; `MarginContainer`, `VBoxContainer` y `GridContainer` para tamaños variables; señales de los nodos existentes. [Godot recomienda contenedores](https://docs.godotengine.org/en/stable/tutorials/ui/gui_containers.html) y [anclajes](https://docs.godotengine.org/en/stable/tutorials/ui/size_and_anchors.html) para interfaces que se adapten al tamaño de ventana.
+Implementado en `assets/art/ui/spooky_theme.tres`, aplicado a todo el proyecto (`gui/theme/custom`). Variaciones: `TitleLabel` (logo), `HeaderLabel` (título de pantalla) y `PrimaryButton` (acción principal). El arcade pixel dibuja su propia UI y no lo usa. Diseño original: un recurso `Theme` compartido para botones, etiquetas y paneles; `MarginContainer`, `VBoxContainer` y `GridContainer` para tamaños variables; señales de los nodos existentes. [Godot recomienda contenedores](https://docs.godotengine.org/en/stable/tutorials/ui/gui_containers.html) y [anclajes](https://docs.godotengine.org/en/stable/tutorials/ui/size_and_anchors.html) para interfaces que se adapten al tamaño de ventana.
 
 ## Estados y accesibilidad
 

@@ -1,6 +1,6 @@
 # Spooky World
 
-Colección de minijuegos de Halloween hecha en Godot 4 durante una hackatón de 6 horas por JamarTeam.
+Colección de minijuegos de Halloween hecha en Godot 4 durante una hackatón de 6 horas por 2 devs y 2 diseñadores.
 
 **Menú → Hub → Minijuego → Resultados → Hub**
 
@@ -70,4 +70,4 @@ GitHub Actions ejecuta `gdlint` y `gdformat --check` en cada push a `main` o `de
 
 ## Equipo
 
-JamarTeam: 2 desarrolladores y 2 diseñadores.
+2 desarrolladores y 2 diseñadores.

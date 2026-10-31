@@ -1,6 +1,7 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scenes/minigames/pumpkin_catch/pumpkin_catch.gd" id="1_catch"]
+[ext_resource type="Texture2D" path="res://assets/art/pumpkin_catch/canasta.png" id="2_basket"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_basket"]
 size = Vector2(140, 32)
@@ -33,13 +34,10 @@ collision_mask = 2
 [node name="Shape" type="CollisionShape2D" parent="Basket"]
 shape = SubResource("RectangleShape2D_basket")
 
-[node name="Visual" type="ColorRect" parent="Basket"]
-offset_left = -70.0
-offset_top = -16.0
-offset_right = 70.0
-offset_bottom = 16.0
-mouse_filter = 2
-color = Color(0.419608, 0.184314, 0.639216, 1)
+[node name="Visual" type="Sprite2D" parent="Basket"]
+unique_name_in_owner = true
+position = Vector2(0, -7)
+texture = ExtResource("2_basket")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true

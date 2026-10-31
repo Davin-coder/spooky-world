@@ -1,6 +1,8 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scenes/minigames/ghost_whack/ghost_whack.gd" id="1_whack"]
+[ext_resource type="Texture2D" path="res://assets/art/ghost_whack/casa.png" id="2_back"]
+[ext_resource type="Texture2D" path="res://assets/art/ghost_whack/casa_frente.png" id="3_front"]
 
 [node name="GhostWhack" type="Node2D"]
 script = ExtResource("1_whack")
@@ -12,85 +14,58 @@ offset_bottom = 720.0
 mouse_filter = 2
 color = Color(0.101961, 0.0627451, 0.145098, 1)
 
-[node name="House" type="ColorRect" parent="."]
-offset_left = 176.0
-offset_top = 152.0
-offset_right = 1104.0
-offset_bottom = 672.0
-mouse_filter = 2
-color = Color(0.180392, 0.101961, 0.278431, 1)
+[node name="HouseBackTop" type="Sprite2D" parent="."]
+position = Vector2(341.37, -122.4)
+scale = Vector2(0.822656, 0.822656)
+texture = ExtResource("2_back")
+centered = false
+offset = Vector2(88, 307)
+region_enabled = true
+region_rect = Rect2(88, 307, 548, 203)
+
+[node name="HouseBackBottom" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(341.37, -122.4)
+scale = Vector2(0.822656, 0.822656)
+texture = ExtResource("2_back")
+centered = false
+offset = Vector2(88, 598)
+region_enabled = true
+region_rect = Rect2(88, 598, 548, 247)
 
 [node name="Spots" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Window1" type="Marker2D" parent="Spots"]
-position = Vector2(320, 280)
-
-[node name="Frame" type="ColorRect" parent="Spots/Window1"]
-offset_left = -70.0
-offset_top = -80.0
-offset_right = 70.0
-offset_bottom = 80.0
-mouse_filter = 2
-color = Color(0.0431373, 0.027451, 0.0627451, 1)
+position = Vector2(483, 278)
 
 [node name="Window2" type="Marker2D" parent="Spots"]
-position = Vector2(640, 280)
-
-[node name="Frame" type="ColorRect" parent="Spots/Window2"]
-offset_left = -70.0
-offset_top = -80.0
-offset_right = 70.0
-offset_bottom = 80.0
-mouse_filter = 2
-color = Color(0.0431373, 0.027451, 0.0627451, 1)
+position = Vector2(639, 292)
 
 [node name="Window3" type="Marker2D" parent="Spots"]
-position = Vector2(960, 280)
-
-[node name="Frame" type="ColorRect" parent="Spots/Window3"]
-offset_left = -70.0
-offset_top = -80.0
-offset_right = 70.0
-offset_bottom = 80.0
-mouse_filter = 2
-color = Color(0.0431373, 0.027451, 0.0627451, 1)
+position = Vector2(796, 278)
 
 [node name="Window4" type="Marker2D" parent="Spots"]
-position = Vector2(320, 520)
-
-[node name="Frame" type="ColorRect" parent="Spots/Window4"]
-offset_left = -70.0
-offset_top = -80.0
-offset_right = 70.0
-offset_bottom = 80.0
-mouse_filter = 2
-color = Color(0.0431373, 0.027451, 0.0627451, 1)
+z_index = 2
+position = Vector2(471, 513)
 
 [node name="Window5" type="Marker2D" parent="Spots"]
-position = Vector2(640, 520)
-
-[node name="Frame" type="ColorRect" parent="Spots/Window5"]
-offset_left = -70.0
-offset_top = -80.0
-offset_right = 70.0
-offset_bottom = 80.0
-mouse_filter = 2
-color = Color(0.0431373, 0.027451, 0.0627451, 1)
+z_index = 2
+position = Vector2(640, 567)
 
 [node name="Window6" type="Marker2D" parent="Spots"]
-position = Vector2(960, 520)
-
-[node name="Frame" type="ColorRect" parent="Spots/Window6"]
-offset_left = -70.0
-offset_top = -80.0
-offset_right = 70.0
-offset_bottom = 80.0
-mouse_filter = 2
-color = Color(0.0431373, 0.027451, 0.0627451, 1)
+z_index = 2
+position = Vector2(808, 513)
 
 [node name="Ghosts" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="HouseFront" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(341.37, -122.4)
+scale = Vector2(0.822656, 0.822656)
+texture = ExtResource("3_front")
+centered = false
 
 [node name="SpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
