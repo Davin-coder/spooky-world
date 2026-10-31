@@ -6,8 +6,8 @@
 script = ExtResource("1_info")
 id = &"haunted_maze"
 display_name = "Haunted Maze"
-description = "Escapa a oscuras del laberinto embrujado: dos fantasmas te persiguen y la vela se apaga."
-instructions = "Flechas o WASD para moverte. Recoge calabazas, evita a los fantasmas y llega a la salida verde."
+description = "Escapa a oscuras del laberinto embrujado: cada vez hay más fantasmas y solo tienes 3 vidas."
+instructions = "Flechas o WASD. Evita a los fantasmas, recoge calabazas y relojes (+tiempo) y llega a la salida verde."
 scene_path = "res://scenes/minigames/haunted_maze/haunted_maze.tscn"
 order = 3
 enabled = true

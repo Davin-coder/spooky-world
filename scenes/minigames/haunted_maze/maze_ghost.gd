@@ -5,6 +5,8 @@ extends Area2D
 ## solo avisa con [signal caught_player] (su máscara es la capa del jugador).
 
 signal caught_player
+## Terminó la pausa de [method freeze_for] y vuelve a perseguir.
+signal woke_up
 
 ## Píxeles por segundo. La raíz lo ajusta con la dificultad.
 var speed: float = 120.0
@@ -18,9 +20,12 @@ var can_move: bool = false:
 
 var _path: Array[Vector2] = []
 
+@onready var _wake_timer: Timer = %WakeTimer
+
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	_wake_timer.timeout.connect(_on_wake_timer_timeout)
 
 
 func _physics_process(delta: float) -> void:
@@ -48,6 +53,18 @@ func follow_path(points: Array[Vector2]) -> void:
 	_path = points
 
 
+## Lo deja quieto [param seconds] y luego vuelve a moverse solo.
+func freeze_for(seconds: float) -> void:
+	can_move = false
+	_wake_timer.start(seconds)
+
+
+## Lo detiene para siempre (fin de partida): no se despierta.
+func stop() -> void:
+	can_move = false
+	_wake_timer.stop()
+
+
 ## Lo mueve al instante a [param point] y olvida la ruta.
 func teleport_to(point: Vector2) -> void:
 	position = point
@@ -57,6 +74,11 @@ func teleport_to(point: Vector2) -> void:
 func _on_body_entered(_body: Node2D) -> void:
 	if can_move:
 		caught_player.emit()
+
+
+func _on_wake_timer_timeout() -> void:
+	can_move = true
+	woke_up.emit()
 
 
 func _check_overlap() -> void:

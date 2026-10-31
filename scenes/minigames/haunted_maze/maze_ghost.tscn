@@ -27,3 +27,7 @@ color = Color(0.94902, 0.917647, 0.827451, 1)
 energy = 0.45
 texture = ExtResource("2_light")
 texture_scale = 0.35
+
+[node name="WakeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
