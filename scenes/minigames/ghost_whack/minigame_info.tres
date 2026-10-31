@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3]
+
+[ext_resource type="Script" path="res://shared/minigame_info.gd" id="1_info"]
+
+[resource]
+script = ExtResource("1_info")
+id = &"ghost_whack"
+display_name = "Ghost Whack"
+description = "Golpea a los fantasmas que se asoman por las ventanas."
+instructions = "Clic en los fantasmas blancos. ¡No toques a los naranjas!"
+scene_path = "res://scenes/minigames/ghost_whack/ghost_whack.tscn"
+order = 2
+enabled = true
+maintainer = "Dev 1"

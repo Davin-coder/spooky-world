@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/minigame_host/minigame_host.gd" id="1_host"]
+[ext_resource type="PackedScene" path="res://shared/hud/minigame_hud.tscn" id="2_hud"]
+
+[node name="MinigameHost" type="Node"]
+script = ExtResource("1_host")
+
+[node name="Hud" parent="." instance=ExtResource("2_hud")]
+unique_name_in_owner = true

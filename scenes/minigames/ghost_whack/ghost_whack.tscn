@@ -1,0 +1,96 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/minigames/ghost_whack/ghost_whack.gd" id="1_whack"]
+
+[node name="GhostWhack" type="Node2D"]
+script = ExtResource("1_whack")
+duration_sec = 30.0
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.101961, 0.0627451, 0.145098, 1)
+
+[node name="House" type="ColorRect" parent="."]
+offset_left = 176.0
+offset_top = 152.0
+offset_right = 1104.0
+offset_bottom = 672.0
+mouse_filter = 2
+color = Color(0.180392, 0.101961, 0.278431, 1)
+
+[node name="Spots" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Window1" type="Marker2D" parent="Spots"]
+position = Vector2(320, 280)
+
+[node name="Frame" type="ColorRect" parent="Spots/Window1"]
+offset_left = -70.0
+offset_top = -80.0
+offset_right = 70.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.0431373, 0.027451, 0.0627451, 1)
+
+[node name="Window2" type="Marker2D" parent="Spots"]
+position = Vector2(640, 280)
+
+[node name="Frame" type="ColorRect" parent="Spots/Window2"]
+offset_left = -70.0
+offset_top = -80.0
+offset_right = 70.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.0431373, 0.027451, 0.0627451, 1)
+
+[node name="Window3" type="Marker2D" parent="Spots"]
+position = Vector2(960, 280)
+
+[node name="Frame" type="ColorRect" parent="Spots/Window3"]
+offset_left = -70.0
+offset_top = -80.0
+offset_right = 70.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.0431373, 0.027451, 0.0627451, 1)
+
+[node name="Window4" type="Marker2D" parent="Spots"]
+position = Vector2(320, 520)
+
+[node name="Frame" type="ColorRect" parent="Spots/Window4"]
+offset_left = -70.0
+offset_top = -80.0
+offset_right = 70.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.0431373, 0.027451, 0.0627451, 1)
+
+[node name="Window5" type="Marker2D" parent="Spots"]
+position = Vector2(640, 520)
+
+[node name="Frame" type="ColorRect" parent="Spots/Window5"]
+offset_left = -70.0
+offset_top = -80.0
+offset_right = 70.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.0431373, 0.027451, 0.0627451, 1)
+
+[node name="Window6" type="Marker2D" parent="Spots"]
+position = Vector2(960, 520)
+
+[node name="Frame" type="ColorRect" parent="Spots/Window6"]
+offset_left = -70.0
+offset_top = -80.0
+offset_right = 70.0
+offset_bottom = 80.0
+mouse_filter = 2
+color = Color(0.0431373, 0.027451, 0.0627451, 1)
+
+[node name="Ghosts" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true

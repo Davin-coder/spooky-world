@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/minigames/pumpkin_catch/pumpkin.gd" id="1_pumpkin"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pumpkin"]
+radius = 22.0
+
+[node name="Pumpkin" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_pumpkin")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pumpkin")
+
+[node name="Visual" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(1, 0.458824, 0.0941176, 1)

@@ -1,2 +1,19 @@
-# Normalize EOL for all files that Git considers text files.
+# Normaliza finales de línea (evita diffs falsos entre Windows y Mac/Linux)
 * text=auto eol=lf
+
+# Binarios: nunca intentar mezclar
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ogg binary
+*.wav binary
+*.mp3 binary
+*.ttf binary
+*.otf binary
+*.woff2 binary
+
+# Escenas y recursos de Godot: texto, pero mezclar a mano es peligroso.
+# En conflicto se conserva la versión del dueño (ver CONTRIBUTING.md).
+*.tscn text eol=lf
+*.tres text eol=lf

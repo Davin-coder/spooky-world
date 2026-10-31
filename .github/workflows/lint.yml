@@ -1,0 +1,21 @@
+name: Lint GDScript
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+jobs:
+  gdlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar gdtoolkit
+        run: pip install "gdtoolkit==4.*"
+      - name: gdlint
+        run: gdlint $(git ls-files '*.gd')
+      - name: gdformat --check
+        run: gdformat --check $(git ls-files '*.gd')

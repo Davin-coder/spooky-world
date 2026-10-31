@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3]
+
+[ext_resource type="Script" path="res://shared/minigame_info.gd" id="1_info"]
+
+[resource]
+script = ExtResource("1_info")
+id = &"haunted_maze"
+display_name = "Haunted Maze"
+description = "Escapa del laberinto embrujado antes de que se apague la vela."
+instructions = "Flechas o WASD para moverte. Recoge dulces y llega a la salida verde."
+scene_path = "res://scenes/minigames/haunted_maze/haunted_maze.tscn"
+order = 3
+enabled = true
+maintainer = "Dev 2"
