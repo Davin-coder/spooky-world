@@ -45,7 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_minigame_finished(final_score: int) -> void:
 	if _leaving:
 		return
-	_hud.show_end(_minigame.timed_out)
+	_hud.show_end(_minigame.timed_out, _minigame.out_of_lives)
 	await get_tree().create_timer(END_MESSAGE_SEC).timeout
 	if _leaving:
 		return
