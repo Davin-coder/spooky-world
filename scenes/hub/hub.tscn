@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_hub")
 
 [node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,6 +41,7 @@ theme_override_constants/separation = 24
 layout_mode = 2
 
 [node name="Title" type="Label" parent="Margin/VBox/Header"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 0.458824, 0.0941176, 1)
@@ -52,6 +54,32 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.560784, 0.819608, 0.309804, 1)
 theme_override_font_sizes/font_size = 24
 text = "Total de la sesión: 0"
+
+[node name="Collections" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="IllustratedButton" type="Button" parent="Margin/VBox/Collections"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+toggle_mode = true
+text = "Halloween ilustrado"
+
+[node name="PixelButton" type="Button" parent="Margin/VBox/Collections"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+toggle_mode = true
+text = "Pixel art · Acción"
+
+[node name="CollectionHint" type="Label" parent="Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Pequeños retos en una noche de Halloween."
 
 [node name="Center" type="CenterContainer" parent="Margin/VBox"]
 layout_mode = 2

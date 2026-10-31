@@ -39,6 +39,7 @@ func play_music(stream: AudioStream) -> void:
 
 func stop_music() -> void:
 	_music_player.stop()
+	_music_player.stream = null
 
 
 ## Reproduce un efecto. Usa un pool para que varios sonidos se superpongan.

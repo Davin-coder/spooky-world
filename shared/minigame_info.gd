@@ -22,3 +22,7 @@ extends Resource
 @export var enabled: bool = true
 ## Quién lo mantiene (para saber a quién preguntar).
 @export var maintainer: String = ""
+## Coleccion visual del hub. Los juegos existentes siguen en ilustracion.
+@export_enum("illustrated", "pixel_art") var collection: String = "illustrated"
+## Presentacion opcional que extiende MinigameResults.
+@export_file("*.tscn") var results_scene_path: String = ""

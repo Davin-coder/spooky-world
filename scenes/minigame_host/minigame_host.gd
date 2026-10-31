@@ -30,7 +30,13 @@ func _ready() -> void:
 	move_child(_minigame, 0)
 	_hud.bind(_minigame, info)
 	_minigame.finished.connect(_on_minigame_finished)
-	await _hud.play_countdown()
+	_minigame.exit_requested.connect(_on_exit_requested)
+	if _minigame.use_shared_hud:
+		await _hud.play_countdown()
+	else:
+		_hud.hide()
+	if _leaving:
+		return
 	_minigame.start()
 
 
@@ -49,4 +55,9 @@ func _on_minigame_finished(final_score: int) -> void:
 	await get_tree().create_timer(END_MESSAGE_SEC).timeout
 	if _leaving:
 		return
-	GameManager.report_result(final_score)
+	GameManager.report_result(final_score, _minigame.timed_out)
+
+
+func _on_exit_requested() -> void:
+	_leaving = true
+	GameManager.go_to_hub()

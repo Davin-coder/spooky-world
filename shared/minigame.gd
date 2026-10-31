@@ -25,12 +25,16 @@ signal score_changed(new_score: int)
 signal lives_changed(lives: int)
 ## Se emite al sumar tiempo con [method add_time] (el HUD muestra "+N s").
 signal time_added(seconds: float)
+## Solicita abandonar al host sin conocer el sistema de navegacion.
+signal exit_requested
 
 ## Duración en segundos. 0 = sin límite (el minijuego decide cuándo terminar).
 @export var duration_sec: float = 45.0
 ## Vidas al empezar. 0 = el minijuego no usa vidas (el HUD no las muestra).
 ## Con vidas, la partida termina sola al perder la última con [method lose_life].
 @export var max_lives: int = 0
+## false para juegos con interfaz y tutorial propios, como el arcade pixel.
+@export var use_shared_hud: bool = true
 
 ## Puntaje actual. Nunca baja de 0.
 var score: int = 0:
@@ -70,6 +74,7 @@ func _notification(what: int) -> void:
 ## Arranca la partida. Lo llama el host (o el modo standalone con F6).
 func start() -> void:
 	score = 0
+	_timer.paused = false
 	timed_out = false
 	lives = max_lives
 	out_of_lives = false
@@ -133,6 +138,11 @@ func get_time_left() -> float:
 	if not is_running or duration_sec <= 0.0:
 		return 0.0
 	return _timer.time_left
+
+
+## Pausa el reloj; cada juego pausa tambien su simulacion local.
+func set_game_paused(paused: bool) -> void:
+	_timer.paused = paused
 
 
 ## Fracción de tiempo transcurrido respecto a [member duration_sec] (0 al

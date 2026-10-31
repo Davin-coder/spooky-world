@@ -26,6 +26,9 @@ var last_score: int = 0
 var last_was_record: bool = false
 ## Mejor puntaje por id de minijuego en esta sesión.
 var best_scores: Dictionary[StringName, int] = {}
+## Conserva la seccion elegida al volver desde una partida.
+var hub_collection: String = "illustrated"
+var last_completed: bool = false
 
 
 func _ready() -> void:
@@ -58,6 +61,7 @@ func go_to_hub() -> void:
 
 func play(info: MinigameInfo) -> void:
 	current = info
+	hub_collection = info.collection
 	SceneLoader.change_scene(HOST_SCENE)
 
 
@@ -69,8 +73,9 @@ func replay_current() -> void:
 
 
 ## Lo llama MinigameHost cuando el minijuego emite finished.
-func report_result(final_score: int) -> void:
+func report_result(final_score: int, completed: bool = false) -> void:
 	last_score = final_score
+	last_completed = completed
 	last_was_record = false
 	if current:
 		last_was_record = final_score > 0 and final_score > get_best(current.id)
