@@ -35,14 +35,21 @@ const CLAIM_SFX: Array[AudioStream] = [
 ## no suman dos efectos (sumados llegan a 0 dBFS y saturan).
 @export_range(0.0, 1.0) var sfx_cooldown_sec: float = 0.1
 
+@export_group("Visual")
+## Escala de canasta.png. Con 0.826 el aro mide lo mismo que la zona de
+## captura (140 px); el arte de calabazas y bombas se ajusta en pumpkin.tscn.
+@export var basket_scale: float = 0.826
+
 var _last_collect_sfx_msec: int = -100000
 
 @onready var _basket: Area2D = %Basket
 @onready var _pumpkins: Node2D = %Pumpkins
 @onready var _spawn_timer: Timer = %SpawnTimer
+@onready var _basket_visual: Sprite2D = %Visual
 
 
 func _ready() -> void:
+	_basket_visual.scale = Vector2.ONE * basket_scale
 	_basket.area_entered.connect(_on_basket_area_entered)
 	_spawn_timer.timeout.connect(_spawn_pumpkin)
 
