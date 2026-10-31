@@ -77,7 +77,7 @@ const MIN_LIGHT_RADIUS: float = 80.0
 
 @export_group("Vidas")
 @export var start_lives: int = 3
-@export var max_lives: int = 5
+@export var extra_life_cap: int = 5
 ## Cada life_spawn_check_sec hay life_spawn_chance de que aparezca una vida
 ## (solo si no hay otra y no tienes el máximo). Desaparece a los life_lifetime_sec.
 @export var life_spawn_check_sec: float = 5.0
@@ -255,7 +255,7 @@ func _on_clock_collected() -> void:
 
 
 func _on_life_check_timer_timeout() -> void:
-	if not _is_playing() or _extra_life != null or _lives >= max_lives:
+	if not _is_playing() or _extra_life != null or _lives >= extra_life_cap:
 		return
 	if _rng.randf() >= life_spawn_chance:
 		return
@@ -269,7 +269,7 @@ func _on_life_check_timer_timeout() -> void:
 func _on_extra_life_collected() -> void:
 	if not _is_playing():
 		return
-	_lives = mini(_lives + 1, max_lives)
+	_lives = mini(_lives + 1, extra_life_cap)
 	_update_ui()
 	_extra_life.queue_free()
 	_extra_life = null

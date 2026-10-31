@@ -35,10 +35,26 @@ theme_override_colors/font_color = Color(0.94902, 0.917647, 0.827451, 1)
 theme_override_font_sizes/font_size = 28
 text = "Puntos: 0"
 
+[node name="LivesBox" type="HBoxContainer" parent="Margin/TopBar"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 8
+
 [node name="Spacer" type="Control" parent="Margin/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
+
+[node name="TimeBonusLabel" type="Label" parent="Margin/TopBar"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 0.819608, 0.309804, 1)
+theme_override_font_sizes/font_size = 28
+text = "+5 s"
 
 [node name="TimeLabel" type="Label" parent="Margin/TopBar"]
 unique_name_in_owner = true

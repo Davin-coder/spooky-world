@@ -23,9 +23,9 @@ Toda la navegación pasa por `GameManager` → `SceneLoader.change_scene()`.
 | `GameManager` (autoload) | `autoload/game_manager.gd` | Descubre minijuegos, guarda puntajes de la sesión y navega |
 | `SceneLoader` (autoload) | `autoload/scene_loader.gd` | Cambio de escena con fundido; único que llama `change_scene_to_file` |
 | `AudioManager` (autoload) | `autoload/audio_manager.gd` | Música y pool de efectos en los buses `Music` y `SFX` |
-| `Minigame` | `shared/minigame.gd` | Clase base: timer, puntaje, `start`/`end_game`, modo standalone (F6) |
+| `Minigame` | `shared/minigame.gd` | Clase base: timer, puntaje, vidas, tiempo extra, `start`/`end_game`, modo standalone (F6) |
 | `MinigameInfo` | `shared/minigame_info.gd` | Ficha `.tres`: nombre, descripción, instrucciones, escena, orden, habilitado |
-| `MinigameHud` | `shared/hud/` | Puntaje, tiempo, cuenta regresiva, mensajes |
+| `MinigameHud` | `shared/hud/` | Puntaje, tiempo (+N s), vidas, cuenta regresiva, mensajes |
 | `MinigameHost` | `scenes/minigame_host/` | Instancia el minijuego, conecta el HUD, cuenta 3-2-1, reporta el resultado |
 | `Palette` | `shared/palette.gd` | Colores oficiales |
 
@@ -44,9 +44,22 @@ Agregar un minijuego = crear su carpeta con su ficha. No se toca ningún archivo
 1. `Hub` → `GameManager.play(info)` → cambia a `MinigameHost`.
 2. `MinigameHost._ready()` instancia `info.scene_path`, verifica que sea `Minigame` y conecta el HUD.
 3. Cuenta regresiva 3-2-1 → `minigame.start()` → `_on_start()` del minijuego.
-4. El minijuego llama `add_score()`; el HUD escucha `score_changed`.
-5. Se acaba el tiempo (o el minijuego llama `end_game()`) → `_on_end()` → `finished(score)`.
-6. `MinigameHost` muestra "¡Tiempo!" o "¡Terminado!" y llama `GameManager.report_result(score)` → `Results`.
+4. El minijuego llama `add_score()`, `lose_life()` o `add_time()`; el HUD escucha `score_changed`,
+   `lives_changed` y `time_added`.
+5. Se acaba el tiempo, se pierde la última vida (si `max_lives > 0`) o el minijuego llama `end_game()`
+   → `_on_end()` → `finished(score)`.
+6. `MinigameHost` muestra "¡Sin vidas!", "¡Tiempo!" o "¡Terminado!" y llama `GameManager.report_result(score)` → `Results`.
+
+## Vidas y tiempo extra
+
+Viven en la base para que todos los minijuegos los usen igual y el HUD los muestre sin código extra.
+
+- **Vidas**: `max_lives` (export, 0 = desactivado). `start()` pone `lives = max_lives`. `lose_life()` resta una;
+  en 0 marca `out_of_lives = true` y llama `end_game()`. `add_life()` suma hasta `max_lives`.
+- **Tiempo extra**: `add_time(s)` reinicia el timer con `time_left + s` y emite `time_added`.
+- **Progreso**: `get_progress()` = tiempo transcurrido / `duration_sec` (no tiempo restante), así un reloj
+  alarga la partida sin bajar la dificultad. Se calcula como `duration_sec + tiempo sumado − time_left`, sin
+  `_process` en la base (los hijos lo sobreescriben).
 
 ## Capas de física
 
