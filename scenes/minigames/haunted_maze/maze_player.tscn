@@ -1,6 +1,7 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scenes/minigames/haunted_maze/maze_player.gd" id="1_player"]
+[ext_resource type="Texture2D" path="res://scenes/minigames/haunted_maze/maze_light_texture.tres" id="2_light"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
 size = Vector2(28, 28)
@@ -20,3 +21,9 @@ offset_right = 14.0
 offset_bottom = 14.0
 mouse_filter = 2
 color = Color(1, 0.458824, 0.0941176, 1)
+
+[node name="Candle" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+color = Color(0.94902, 0.917647, 0.827451, 1)
+texture = ExtResource("2_light")
+texture_scale = 1.33
