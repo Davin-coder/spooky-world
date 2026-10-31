@@ -8,9 +8,19 @@ const LIGHT_TEXTURE_RADIUS: float = 128.0
 
 @export var speed: float = 260.0
 
+@export_group("Visual")
+## Escala de detective.png (recortado a su contenido). Con 0.61 mide 28 px de
+## alto, igual que la colisión.
+@export var sprite_scale: float = 0.61
+
 var can_move: bool = false
 
 @onready var _candle: PointLight2D = %Candle
+@onready var _visual: Sprite2D = %Visual
+
+
+func _ready() -> void:
+	_visual.scale = Vector2.ONE * sprite_scale
 
 
 func _physics_process(_delta: float) -> void:
@@ -18,6 +28,8 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 	velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * speed
+	if not is_zero_approx(velocity.x):
+		_visual.flip_h = velocity.x < 0.0
 	move_and_slide()
 
 

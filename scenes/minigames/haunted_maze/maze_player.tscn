@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/minigames/haunted_maze/maze_player.gd" id="1_player"]
 [ext_resource type="Texture2D" path="res://scenes/minigames/haunted_maze/maze_light_texture.tres" id="2_light"]
+[ext_resource type="Texture2D" path="res://assets/art/haunted_maze/detective.png" id="3_detective"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
 size = Vector2(28, 28)
@@ -14,13 +15,11 @@ script = ExtResource("1_player")
 [node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_player")
 
-[node name="Visual" type="ColorRect" parent="."]
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
-mouse_filter = 2
-color = Color(1, 0.458824, 0.0941176, 1)
+[node name="Visual" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("3_detective")
+region_enabled = true
+region_rect = Rect2(10, 5, 25, 46)
 
 [node name="Candle" type="PointLight2D" parent="."]
 unique_name_in_owner = true
