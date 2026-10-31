@@ -1,3 +1,27 @@
-# Godot 4+ specific ignores
+# Godot 4
 .godot/
 /android/
+
+# Config local del MCP de Codex: tiene rutas de cada máquina.
+.codex/config.toml
+*.translation
+
+# Exportaciones (no se versionan; se suben como release)
+/build/
+/export/
+*.pck
+*.exe
+*.zip
+
+# Ajustes locales de export (pueden tener rutas o claves personales)
+export_credentials.cfg
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.tmp
+
+# Capturas de documentacion: Godot no debe versionar sus caches de importacion.
+/docs/**/*.import

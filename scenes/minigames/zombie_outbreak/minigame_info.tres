@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3]
+
+[ext_resource type="Script" path="res://shared/minigame_info.gd" id="1_info"]
+[ext_resource type="Texture2D" path="res://assets/art/zombie_outbreak/card.png" id="2_card"]
+
+[resource]
+script = ExtResource("1_info")
+id = &"zombie_outbreak"
+display_name = "Última guardia"
+description = "Sobrevive 60 segundos entre zombis. Pistola, recarga, esquiva y tres oleadas."
+instructions = "WASD mover · Ratón apuntar · Clic disparar · R recargar · Espacio esquivar · Esc pausa"
+scene_path = "res://scenes/minigames/zombie_outbreak/zombie_outbreak.tscn"
+order = 10
+enabled = true
+maintainer = "Dev 1"
+collection = "pixel_art"
+icon = ExtResource("2_card")
+results_scene_path = "res://scenes/minigames/zombie_outbreak/outbreak_results.tscn"

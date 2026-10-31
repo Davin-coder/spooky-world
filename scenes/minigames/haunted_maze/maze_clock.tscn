@@ -1,0 +1,31 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/minigames/haunted_maze/maze_pickup.gd" id="1_pickup"]
+[ext_resource type="Texture2D" path="res://scenes/minigames/haunted_maze/maze_light_texture.tres" id="2_light"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_clock"]
+radius = 13.0
+
+[node name="MazeClock" type="Area2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_pickup")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_clock")
+
+[node name="Visual" type="ColorRect" parent="."]
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+rotation = 0.785398
+pivot_offset = Vector2(11, 11)
+mouse_filter = 2
+color = Color(0.560784, 0.819608, 0.309804, 1)
+
+[node name="Glow" type="PointLight2D" parent="."]
+color = Color(0.560784, 0.819608, 0.309804, 1)
+energy = 0.7
+texture = ExtResource("2_light")
+texture_scale = 0.35

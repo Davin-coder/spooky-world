@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3]
+
+[ext_resource type="Script" path="res://shared/minigame_info.gd" id="1_info"]
+
+[resource]
+script = ExtResource("1_info")
+id = &"template"
+display_name = "Plantilla"
+description = "Descripción de una línea para el hub."
+instructions = "Cómo se juega, en una frase."
+scene_path = "res://scenes/minigames/_template/template_minigame.tscn"
+order = 99
+enabled = false
+maintainer = ""

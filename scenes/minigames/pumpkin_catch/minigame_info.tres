@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3]
+
+[ext_resource type="Script" path="res://shared/minigame_info.gd" id="1_info"]
+
+[resource]
+script = ExtResource("1_info")
+id = &"pumpkin_catch"
+display_name = "Pumpkin Catch"
+description = "Atrapa las calabazas que caen. ¡Cuidado con las bombas!"
+instructions = "Flechas o A / D para mover la canasta. Evita las bombas."
+scene_path = "res://scenes/minigames/pumpkin_catch/pumpkin_catch.tscn"
+order = 1
+enabled = true
+maintainer = "Dev 2"

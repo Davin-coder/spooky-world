@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/minigames/zombie_outbreak/outbreak_results.gd" id="1_result"]
+[ext_resource type="Script" path="res://scenes/minigames/zombie_outbreak/outbreak_results_canvas.gd" id="2_canvas"]
+
+[node name="OutbreakResults" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_result")
+
+[node name="PixelContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="PixelViewport" type="SubViewport" parent="PixelContainer"]
+disable_3d = true
+size = Vector2i(320, 180)
+render_target_update_mode = 4
+
+[node name="ResultCanvas" type="Node2D" parent="PixelContainer/PixelViewport"]
+unique_name_in_owner = true
+texture_filter = 1
+script = ExtResource("2_canvas")
