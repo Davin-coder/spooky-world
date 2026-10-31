@@ -17,6 +17,10 @@ const MAZE_PUMPKIN_SCENE: PackedScene = preload(
 )
 const MAZE_CLOCK_SCENE: PackedScene = preload("res://scenes/minigames/haunted_maze/maze_clock.tscn")
 const MAZE_LIFE_SCENE: PackedScene = preload("res://scenes/minigames/haunted_maze/maze_life.tscn")
+## Ambiente en bucle (Loop activado en su import) mientras dura la partida.
+const AMBIENCE: AudioStream = preload(
+	"res://assets/audio/sfx/atmosphera/atmosmoody/atmoseerie04.mp3"
+)
 
 const TILE: int = 48
 const ORIGIN: Vector2 = Vector2(16, 80)
@@ -99,6 +103,11 @@ const MIN_LIGHT_RADIUS: float = 80.0
 @export_group("Puntaje")
 @export var points_per_second_left: int = 10
 
+@export_group("Audio")
+## Volumen del ambiente sobre el bus Music (que ya está en -6 dB). Debe quedar
+## de fondo, por debajo de cualquier efecto.
+@export_range(-40.0, 6.0) var ambience_volume_db: float = -6.0
+
 var _start_position: Vector2 = Vector2.ZERO
 var _start_cell: Vector2i = Vector2i.ZERO
 var _exit_cell: Vector2i = Vector2i.ZERO
@@ -164,6 +173,11 @@ func _process(delta: float) -> void:
 		end_game()
 
 
+func _exit_tree() -> void:
+	# Abandonar con "back" vuelve al hub sin pasar por _on_end().
+	AudioManager.stop_music()
+
+
 func _on_start() -> void:
 	_rng.randomize()
 	_is_game_over = false
@@ -184,9 +198,13 @@ func _on_start() -> void:
 	_life_check_timer.start(life_spawn_check_sec)
 	_update_candle()
 	_update_ui()
+	# Empieza en un punto al azar para que no suene igual en cada partida.
+	var ambience_start: float = _rng.randf_range(0.0, AMBIENCE.get_length())
+	AudioManager.play_music(AMBIENCE, ambience_start, ambience_volume_db)
 
 
 func _on_end() -> void:
+	AudioManager.stop_music()
 	_freeze_world()
 	_game_over_timer.stop()
 	# El host muestra su propio mensaje final encima; no se tapan.

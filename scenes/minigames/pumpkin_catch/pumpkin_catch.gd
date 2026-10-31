@@ -4,6 +4,13 @@ extends Minigame
 
 const PUMPKIN_SCENE: PackedScene = preload("res://scenes/minigames/pumpkin_catch/pumpkin.tscn")
 const SIDE_MARGIN: float = 80.0
+## Efectos al atrapar una calabaza: suena uno al azar, sin repetir seguido.
+const CLAIM_SFX: Array[AudioStream] = [
+	preload("res://assets/audio/sfx/claim_effects/Coin01.mp3"),
+	preload("res://assets/audio/sfx/claim_effects/Rise01.mp3"),
+	preload("res://assets/audio/sfx/claim_effects/Rise02.mp3"),
+	preload("res://assets/audio/sfx/claim_effects/Rise03.mp3"),
+]
 
 @export_group("Canasta")
 @export var basket_speed: float = 650.0
@@ -18,6 +25,17 @@ const SIDE_MARGIN: float = 80.0
 @export_group("Puntaje")
 @export var points_per_pumpkin: int = 10
 @export var bomb_penalty: int = 25
+
+@export_group("Audio")
+## Variación de tono al azar de cada efecto (0.05 = ±5 %).
+@export_range(0.0, 0.5) var collect_pitch_variation: float = 0.05
+## Volumen sobre el bus SFX. Los archivos ya son suaves (pico -4 a -13 dBFS).
+@export_range(-40.0, 6.0) var collect_volume_db: float = 0.0
+## Tras sonar, ignora otras capturas este tiempo: dos calabazas a la vez
+## no suman dos efectos (sumados llegan a 0 dBFS y saturan).
+@export_range(0.0, 1.0) var sfx_cooldown_sec: float = 0.1
+
+var _last_collect_sfx_msec: int = -100000
 
 @onready var _basket: Area2D = %Basket
 @onready var _pumpkins: Node2D = %Pumpkins
@@ -68,7 +86,16 @@ func _on_basket_area_entered(area: Area2D) -> void:
 		add_score(-bomb_penalty)
 	else:
 		add_score(points_per_pumpkin)
+		_play_collect_sfx()
 	pumpkin.queue_free()
+
+
+func _play_collect_sfx() -> void:
+	var now_msec: int = Time.get_ticks_msec()
+	if now_msec - _last_collect_sfx_msec < int(sfx_cooldown_sec * 1000.0):
+		return
+	_last_collect_sfx_msec = now_msec
+	AudioManager.play_random_sfx(CLAIM_SFX, collect_pitch_variation, collect_volume_db)
 
 
 func _clear_pumpkins() -> void:
