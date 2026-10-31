@@ -81,6 +81,12 @@ Viven en la base para que todos los minijuegos los usen igual y el HUD los muest
 
 ## Decisiones
 
+La sección pixel añade extensiones opcionales a los contratos, sin cambiar el
+valor por defecto de los juegos ilustrados: categoría en `MinigameInfo`, HUD propio,
+pausa del reloj, señal de abandono y presentación de resultados. Ver
+[`PIXEL_ART.md`](PIXEL_ART.md) para el flujo y [`ZOMBIE_OUTBREAK.md`](ZOMBIE_OUTBREAK.md)
+para la separación entre simulación, renderer y audio del shooter.
+
 - **GDScript + tipado estático**: iteración rápida y errores detectados en el editor.
 - **GL Compatibility**: funciona en Web y en equipos modestos.
 - **Placeholders con `ColorRect`**: desarrollo no espera a diseño.

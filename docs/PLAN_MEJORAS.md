@@ -1,5 +1,10 @@
 # Plan de mejoras posterior al MVP
 
+La ampliación solicitada después de este plan incorpora una colección pixel art
+y el shooter **Última guardia**. Su alcance, referencias, estado y pendientes están
+en [`ZOMBIE_OUTBREAK.md`](ZOMBIE_OUTBREAK.md). La prioridad original de no añadir
+un cuarto juego antes del pulido queda reemplazada por esa solicitud explícita.
+
 Estado de partida: el flujo **Menú → Hub → Minijuego → Resultados → Hub** funciona; hay tres minijuegos jugables con arte provisional, un HUD común, `AudioManager` y buses `Music`/`SFX`. Las carpetas de arte y audio aún no contienen las entregas finales. Este plan mejora la experiencia sin rehacer la arquitectura de minijuegos.
 
 ## Decisiones de producto

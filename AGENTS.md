@@ -55,6 +55,14 @@ docs/                Plan, arquitectura y especificación de assets.
 | `pumpkin_catch` | Pumpkin Catch | Dev 2 | MVP prioritario |
 | `ghost_whack` | Ghost Whack | Dev 1 | MVP |
 | `haunted_maze` | Haunted Maze | Dev 2 | **Opcional**: lo primero que se corta |
+| `zombie_outbreak` | Última guardia | Dev 1 | Arcade pixel art, jugable |
+
+La ampliación pixel art fue solicitada por el usuario después del MVP. Ver
+`docs/PIXEL_ART.md` y `docs/ZOMBIE_OUTBREAK.md`. La colección ilustrada conserva
+su presentación. El juego pixel usa HUD propio (`use_shared_hud = false`),
+`set_game_paused()` para el reloj, `exit_requested` para abandonar y una escena
+opcional de resultados que extiende `MinigameResults`. No añade autoloads.
+Sus acciones específicas son `zombie_fire`, `zombie_reload` y `zombie_dash`.
 
 ## El contrato de minijuego (no romperlo)
 
@@ -123,3 +131,5 @@ Para crear uno: skill [`nuevo-minijuego`](.agents/skills/nuevo-minijuego/SKILL.m
 | `integrar-assets` | Reemplazar placeholders por arte o audio de diseño |
 | `godot-mcp` | Trabajar con el editor a través del MCP de Godot |
 | `entrega-export` | Exportar y preparar la entrega final |
+| `pixel-art-godot` | Crear o integrar contenido en la colección pixel art |
+| `zombie-outbreak` | Combate, balance, audio y pruebas de Última guardia |

@@ -9,6 +9,7 @@ Colección de minijuegos de Halloween hecha en Godot 4 durante una hackatón de 
 | Pumpkin Catch | Mueve la canasta (← → / A D), atrapa calabazas y evita bombas | Jugable con placeholders |
 | Ghost Whack | Haz clic en los fantasmas blancos, no en los naranjas | Jugable con placeholders |
 | Haunted Maze | Llega a la salida (flechas / WASD) recogiendo dulces | Opcional, jugable con placeholders |
+| Última guardia | Sobrevive a zombis con pistola, recarga y esquiva | Sección Pixel art · jugable |
 
 ## Empezar
 
@@ -18,6 +19,8 @@ Colección de minijuegos de Halloween hecha en Godot 4 durante una hackatón de 
 4. **F5** para jugar el flujo completo. **F6** sobre la escena de un minijuego para probarlo solo.
 
 Controles: flechas o WASD para moverse, Espacio o clic para acción, **Esc** para volver.
+
+En el hub elige **Pixel art · Acción** para jugar **Última guardia**: WASD/flechas para moverte, ratón para apuntar, clic para disparar, R para recargar, Espacio para esquivar y Esc para pausar. Partidas de 60 segundos con oleadas, cobertura, botiquines y resultados propios en pixel art.
 
 ## Estructura
 
@@ -40,6 +43,8 @@ Detalle en [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 - [`docs/PLAN_MEJORAS.md`](docs/PLAN_MEJORAS.md): prioridades después del MVP, responsables y criterios de salida.
 - [`docs/UX_UI.md`](docs/UX_UI.md): propuesta visual 2D, recorrido y sustitución del fondo temporal.
 - [`docs/AUDIO.md`](docs/AUDIO.md): inventario y mezcla de música y efectos para Web.
+- [`docs/PIXEL_ART.md`](docs/PIXEL_ART.md): contrato visual y sustitución de sprites de la sección arcade.
+- [`docs/ZOMBIE_OUTBREAK.md`](docs/ZOMBIE_OUTBREAK.md): diseño, arquitectura, referencias y plan del shooter.
 - [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md): cómo encajan las piezas.
 - [`docs/ASSETS.md`](docs/ASSETS.md): especificación para el equipo de diseño.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md): Git y trabajo en equipo.

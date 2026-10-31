@@ -67,6 +67,11 @@ El fondo actual `assets/art/ui/ui_menu_background.png` es temporal. La ilustraci
 
 ## Entrega
 
+La sección pixel usa tamaños lógicos pequeños y escalado entero, con una paleta
+propia coherente con Halloween. Sus sprites y contrato de sustitución están en
+[`PIXEL_ART.md`](PIXEL_ART.md). La regla de arte ilustrado a tamaño final no se
+aplica a esos sprites; se presentan a escala 4 con filtro nearest.
+
 - Carpeta compartida con la misma estructura de `assets/`.
 - Avisar en el canal del equipo cuando haya algo nuevo.
 - Importa a Godot **una sola persona**: el dueño del minijuego para su arte y Dev 1 para la UI y el audio.

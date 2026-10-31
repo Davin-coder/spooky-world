@@ -22,3 +22,6 @@ Thumbs.db
 .vscode/
 .idea/
 *.tmp
+
+# Capturas de documentacion: Godot no debe versionar sus caches de importacion.
+/docs/**/*.import
