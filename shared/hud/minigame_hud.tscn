@@ -25,14 +25,13 @@ theme_override_constants/separation = 32
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.458824, 0.0941176, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "Minijuego"
 
 [node name="ScoreLabel" type="Label" parent="Margin/TopBar"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.94902, 0.917647, 0.827451, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "Puntos: 0"
 
 [node name="LivesBox" type="HBoxContainer" parent="Margin/TopBar"]
@@ -53,14 +52,13 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.560784, 0.819608, 0.309804, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "+5 s"
 
 [node name="TimeLabel" type="Label" parent="Margin/TopBar"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.94902, 0.917647, 0.827451, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "45 s"
 
 [node name="CenterLabel" type="Label" parent="."]
@@ -95,7 +93,7 @@ mouse_filter = 2
 theme_override_colors/font_color = Color(0.94902, 0.917647, 0.827451, 1)
 theme_override_colors/font_outline_color = Color(0.101961, 0.0627451, 0.145098, 1)
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "Instrucciones"
 horizontal_alignment = 1
 vertical_alignment = 1

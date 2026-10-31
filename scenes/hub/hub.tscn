@@ -1,6 +1,7 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scenes/hub/hub.gd" id="1_hub"]
+[ext_resource type="Texture2D" path="res://assets/art/ui/ui_menu_background.png" id="2_backdrop"]
 
 [node name="Hub" type="Control"]
 layout_mode = 3
@@ -19,7 +20,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.180392, 0.101961, 0.278431, 1)
+
+[node name="Backdrop" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.35)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_backdrop")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -44,15 +60,14 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 0.458824, 0.0941176, 1)
-theme_override_font_sizes/font_size = 48
+theme_type_variation = &"HeaderLabel"
 text = "Elige un minijuego"
 
 [node name="TotalLabel" type="Label" parent="Margin/VBox/Header"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.560784, 0.819608, 0.309804, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 text = "Total de la sesión: 0"
 
 [node name="Collections" type="HBoxContainer" parent="Margin/VBox"]
@@ -63,7 +78,7 @@ theme_override_constants/separation = 16
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 26
 toggle_mode = true
 text = "Halloween ilustrado"
 
@@ -71,14 +86,14 @@ text = "Halloween ilustrado"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 48)
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 26
 toggle_mode = true
 text = "Pixel art · Acción"
 
 [node name="CollectionHint" type="Label" parent="Margin/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Pequeños retos en una noche de Halloween."
 
 [node name="Center" type="CenterContainer" parent="Margin/VBox"]
@@ -96,8 +111,6 @@ columns = 3
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-theme_override_colors/font_color = Color(0.94902, 0.917647, 0.827451, 1)
-theme_override_font_sizes/font_size = 24
 text = "No hay minijuegos habilitados todavía."
 
 [node name="BackButton" type="Button" parent="Margin/VBox"]
@@ -105,5 +118,5 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 48)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 20
-text = "← Menú"
+theme_override_font_sizes/font_size = 24
+text = "‹ Menú"

@@ -12,6 +12,7 @@ const CARD_SIZE: Vector2 = Vector2(340, 160)
 @onready var _pixel_button: Button = %PixelButton
 @onready var _collection_hint: Label = %CollectionHint
 @onready var _background: ColorRect = %Background
+@onready var _backdrop: TextureRect = %Backdrop
 @onready var _title: Label = %Title
 
 
@@ -48,7 +49,7 @@ func _build_cards() -> void:
 func _make_card(info: MinigameInfo) -> Button:
 	var card := Button.new()
 	card.custom_minimum_size = CARD_SIZE
-	card.add_theme_font_size_override("font_size", 24)
+	card.add_theme_font_size_override("font_size", 30)
 	var best: int = GameManager.get_best(info.id)
 	card.text = "%s\n\nRécord: %d" % [info.display_name, best]
 	card.tooltip_text = info.description
@@ -80,6 +81,7 @@ func _set_collection(collection: String) -> void:
 	_illustrated_button.button_pressed = not pixel
 	_pixel_button.button_pressed = pixel
 	_background.color = Palette.PIXEL_INK if pixel else Palette.DUSK
+	_backdrop.visible = not pixel
 	_title.text = "Arcade de medianoche" if pixel else "Elige un minijuego"
 	_collection_hint.text = (
 		"Pixel art, pólvora y supervivencia. ¿Llegarás al amanecer?"

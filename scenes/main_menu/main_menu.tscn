@@ -38,17 +38,14 @@ theme_override_constants/separation = 24
 
 [node name="Title" type="Label" parent="Center/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.458824, 0.0941176, 1)
-theme_override_colors/font_outline_color = Color(0.419608, 0.184314, 0.639216, 1)
-theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 88
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 112
 text = "SPOOKY WORLD"
 horizontal_alignment = 1
 
 [node name="Subtitle" type="Label" parent="Center/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.94902, 0.917647, 0.827451, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Minijuegos de Halloween"
 horizontal_alignment = 1
 
@@ -61,7 +58,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 32
+theme_type_variation = &"PrimaryButton"
+theme_override_font_sizes/font_size = 36
 text = "Jugar"
 
 [node name="QuitButton" type="Button" parent="Center/VBox"]
@@ -69,5 +67,5 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 56)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 text = "Salir"
