@@ -63,7 +63,11 @@ docs/                Plan, arquitectura y especificación de assets.
 - Puntos con `add_score(n)` (negativo resta). Fin anticipado con `end_game()`.
 - Lógica por frame en `_process` / `_physics_process`, **siempre** con `if not is_running: return` al inicio.
 - Un minijuego **no** cambia de escena, **no** usa `GameManager`, **no** conoce el hub ni a otros minijuegos. Solo emite señales (las emite la base).
-- Dificultad progresiva con `get_progress()` (0 → 1 a lo largo de la partida).
+- Dificultad progresiva con `get_progress()` (0 → 1 según el tiempo **transcurrido**; sumar tiempo no la baja).
+- Vidas (opcional): `max_lives = N` en la escena (0 = sin vidas). `lose_life()` resta una y, con la última,
+  termina la partida (`out_of_lives`). `add_life()` suma una, sin pasar de `max_lives`. El HUD las dibuja solo.
+- Tiempo extra: `add_time(segundos)` sube el reloj y el HUD muestra "+N s". Sin efecto si `duration_sec = 0`.
+- No declares en tu minijuego miembros con nombres de la base (`max_lives`, `lives`, `score`…): es error de parseo.
 - Valores de ajuste como `@export` (agrupados con `@export_group`) para que diseño los cambie en el Inspector.
 - Se prueba solo con **F6**: la base detecta que corre sin host y arranca sola.
 

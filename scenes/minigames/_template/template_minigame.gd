@@ -7,6 +7,9 @@ extends Minigame
 ## 2. Lógica de inicio en _on_start(), de cierre en _on_end().
 ## 3. Sumar puntos con add_score(). Terminar antes de tiempo con end_game().
 ## 4. Probar solo con F6 (arranca sin host) y luego desde el hub.
+## 5. Vidas (opcional): poner max_lives = 3 (o las que quieras) en el Inspector
+##    de la raíz y llamar lose_life() al recibir daño; con la última termina
+##    solo y el HUD las dibuja. Tiempo extra: add_time(segundos).
 
 @export_group("Dificultad")
 @export var spawn_interval_start: float = 1.0
