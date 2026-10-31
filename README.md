@@ -26,7 +26,7 @@ autoload/      GameManager, SceneLoader, AudioManager
 shared/        Contrato Minigame, MinigameInfo, Palette, HUD
 scenes/        Menú, hub, resultados, host y minigames/<id>/
 assets/        Arte, audio y fuentes (ver docs/ASSETS.md)
-tools/         Prueba de humo
+tools/         Pruebas de carga y flujo
 docs/          Plan, arquitectura y spec de assets
 .agents/skills Procedimientos para agentes de IA (y humanos)
 ```
@@ -37,6 +37,9 @@ Detalle en [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md).
 
 - [`AGENTS.md`](AGENTS.md): contexto y reglas del proyecto (lo leen Codex y Claude; léelo tú también).
 - [`docs/PLAN.md`](docs/PLAN.md): plan de la hackatón, cronograma y roles.
+- [`docs/PLAN_MEJORAS.md`](docs/PLAN_MEJORAS.md): prioridades después del MVP, responsables y criterios de salida.
+- [`docs/UX_UI.md`](docs/UX_UI.md): propuesta visual 2D, recorrido y sustitución del fondo temporal.
+- [`docs/AUDIO.md`](docs/AUDIO.md): inventario y mezcla de música y efectos para Web.
 - [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md): cómo encajan las piezas.
 - [`docs/ASSETS.md`](docs/ASSETS.md): especificación para el equipo de diseño.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md): Git y trabajo en equipo.

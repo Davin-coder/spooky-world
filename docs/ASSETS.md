@@ -39,7 +39,7 @@ assets/art/pumpkin_catch/pumpkin_catch_pumpkin.png
 assets/art/pumpkin_catch/pumpkin_catch_bomb.png
 assets/art/ghost_whack/ghost_whack_ghost_idle.png
 assets/art/ui/ui_button_play.png
-assets/audio/sfx/pumpkin_catch_pop.wav
+assets/audio/sfx/pumpkin_catch_collect.wav
 assets/audio/music/hub_theme.ogg
 ```
 
@@ -60,7 +60,10 @@ assets/audio/music/hub_theme.ogg
 | Haunted Maze | Dulce | 20×20 |
 | Haunted Maze | Salida | 40×40 |
 | UI | Logo "Spooky World", botones, tarjetas del hub | Libre |
+| UI | Fondo de menú 16:9, sin texto y con centro despejado | 1920×1080 o 1280×720 |
 | Audio | Música del hub, 1 efecto por acción (atrapar, golpe, error, fin) | — |
+
+El fondo actual `assets/art/ui/ui_menu_background.png` es temporal. La ilustración final se entrega con **el mismo nombre y ruta** para sustituirlo sin modificar la escena; ver [`UX_UI.md`](UX_UI.md).
 
 ## Entrega
 
