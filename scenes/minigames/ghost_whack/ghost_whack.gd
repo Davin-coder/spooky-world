@@ -1,6 +1,10 @@
 extends Minigame
 ## Ghost Whack: haz clic en los fantasmas que aparecen en las ventanas.
-## No toques a los fantasmas amigos (naranjas). Dueño: Dev 1.
+## No toques a las calabazas (amigas). Dueño: Dev 1.
+##
+## Capas de la casa (z_index): fondo de arriba (0), fantasmas de la fila de
+## arriba (0), fondo de abajo (1), fantasmas de la fila de abajo (2) y fachada
+## (3). Cada fantasma toma el z_index de su Marker2D en %Spots.
 
 const GHOST_SCENE: PackedScene = preload("res://scenes/minigames/ghost_whack/ghost.tscn")
 ## Golpes de diseño: suena uno al azar, sin repetir seguido.
@@ -69,6 +73,7 @@ func _spawn_ghost() -> void:
 	ghost.is_friendly = randf() < friendly_chance
 	ghost.lifetime = lerpf(lifetime_start, lifetime_end, progress)
 	ghost.position = spot.position
+	ghost.z_index = spot.z_index
 	ghost.whacked.connect(_on_ghost_whacked)
 	ghost.tree_exited.connect(func() -> void: _occupied.erase(spot))
 	_occupied[spot] = ghost
